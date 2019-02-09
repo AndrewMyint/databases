@@ -2,28 +2,37 @@ CREATE DATABASE chat;
 
 USE chat;
 
-CREATE TABLE messages (
+CREATE TABLE Messages
+(
   /* Describe your table here.*/
-  id INT,
-  text VARCHAR(255),
-  date DATE,
-  PRIMARY KEY (id)
+  MessageId INT,
+  Text VARCHAR(255),
+  Date DATE,
+  UserId INT,
+  RoomId INT,
+  PRIMARY KEY (MessageId),
+  FOREIGN KEY (UserId)
+      REFERENCES Users (UserId),
+  FOREIGN KEY (RoomId)
+      REFERENCES Rooms (RoomId)
 );
 
 
 /* Create other tables and define schemas for them here! */
-CREATE TABLE users (
+CREATE TABLE Users
+(
   /* Describe your table here.*/
-  Id INT,
-  Name VARCHAR(30),
-  PRIMARY KEY (Id)
+  UserId INT,
+  UserName VARCHAR(30),
+  PRIMARY KEY (UserId)
 );
 
-CREATE TABLE rooms (
+CREATE TABLE Rooms
+(
   /* Describe your table here.*/
-  Id INT,
-  roomName VARCHAR(30),
-  PRIMARY KEY (Id)
+  RoomId INT,
+  RoomName VARCHAR(30),
+  PRIMARY KEY (RoomId)
 );
 
 /*  Execute this file from the command line by typing:
