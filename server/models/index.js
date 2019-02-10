@@ -71,10 +71,10 @@ module.exports = {
     post: function (data, callback) {
       db.users.sync()
         .then(function () {
-          return db.users.create({ UserName: data.username });
+          return db.users.create({ UserName: data.UserName });
         })
         .then(function (data) {
-          callback(null, data);
+          callback(null, data.dataValues);
         })
         .catch((err) => {
           callback(err, null);
