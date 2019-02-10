@@ -20,6 +20,8 @@ app.use(parser.json());
 
 // Set up our routes
 app.use('/classes', router);
+// '/classes/messagees'
+// '/classes/users'
 
 // Serve the client files
 app.use(express.static(__dirname + '/../client'));
